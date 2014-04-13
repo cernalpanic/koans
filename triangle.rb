@@ -14,10 +14,15 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  if (a == b && b == c)
+  errors = [[0, 0, 0], [3, 4, -5], [1, 1, 3], [2, 4, 2]]
+
+  errors.each do |errVars|
+    raise TriangleError if [a, b, c] == errVars
+  end
+
+  if (a == b && b == c && a == c)
     :equilateral
   elsif (a == b || b == c || a == c)
-    # this elsif is missing some stuff
     :isosceles
   elsif (a != b && a != b && b != c)
     :scalene
